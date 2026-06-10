@@ -3,13 +3,20 @@ const { Pool } = require('pg');
 
 const app = express();
 
-const pool = new Pool({
-  host: 'localhost',
-  port: 5433,
-  user: 'postgres',
-  password: 'mypassword',
-  database: 'postgres',
-});
+const pool = new Pool(
+  process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,   // 배포 환경: Render가 주는 주소
+        ssl: { rejectUnauthorized: false },
+      }
+    : {
+        host: 'localhost',   // 로컬 환경: 기존 그대로
+        port: 5433,
+        user: 'postgres',
+        password: 'mypassword',
+        database: 'postgres',
+      }
+);
 
 app.use(express.json());
 app.use(express.static('.'));
@@ -88,6 +95,7 @@ app.post('/api/transfers', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('서버 실행 중: http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`서버 실행 중: http://localhost:${PORT}`);
 });
