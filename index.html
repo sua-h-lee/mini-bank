@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>미니 은행</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🏦 미니 은행</h1>
+
+    <div class="card">
+      <h2>내 계좌</h2>
+      <div id="accounts"></div>
+    </div>
+
+    <div class="card">
+      <h2>보내기</h2>
+      <form id="form">
+        <div class="row">
+          <select id="from"></select>
+          <span class="arrow">→</span>
+          <select id="to"></select>
+        </div>
+        <div class="row">
+          <input id="amount" type="number" placeholder="금액 입력" required>
+        </div>
+        <button>이체하기</button>
+      </form>
+      <p id="result"></p>
+    </div>
+
+    <div class="card">
+      <h2>최근 내역</h2>
+      <div id="transfers"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

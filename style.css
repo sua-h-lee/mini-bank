@@ -1,0 +1,94 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", sans-serif;
+  background: #f2f4f6;
+  color: #191f28;
+  padding: 24px 16px;
+}
+
+.container { max-width: 420px; margin: 0 auto; }
+
+h1 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+
+/* 카드 공통 */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 { font-size: 15px; color: #8b95a1; font-weight: 600; margin-bottom: 14px; }
+
+/* 계좌 목록 */
+.account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.account + .account { border-top: 1px solid #f2f4f6; }
+.account .name { font-size: 15px; font-weight: 600; }
+.account .balance { font-size: 17px; font-weight: 700; }
+
+/* 이체 폼 */
+.row { display: flex; gap: 8px; margin-bottom: 10px; }
+
+select, input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #e5e8eb;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #f9fafb;
+  outline: none;
+}
+
+select:focus, input:focus { border-color: #3182f6; background: #fff; }
+
+.arrow { align-self: center; color: #8b95a1; font-weight: 700; }
+
+button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: #3182f6;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button:hover { background: #1b64da; }
+button:active { transform: scale(0.98); }
+
+/* 결과 메시지 */
+#result {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  min-height: 20px;
+}
+
+#result.ok { color: #3182f6; }
+#result.fail { color: #f04452; }
+
+/* 이체 내역 */
+.transfer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 15px;
+}
+
+.transfer + .transfer { border-top: 1px solid #f2f4f6; }
+.transfer .who { color: #4e5968; }
+.transfer .amt { font-weight: 700; }
+
+.empty { color: #8b95a1; font-size: 14px; text-align: center; padding: 12px 0; }
